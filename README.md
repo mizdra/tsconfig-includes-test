@@ -17,29 +17,32 @@ $ npx tsc --listFilesOnly | grep -v node_modules
 /Users/mizdra/src/github.com/mizdra/tsconfig-includes-test/src/main.ts
 ```
 
-`substract` is auto-importable from editor, but `sum` is not auto-importable.
+`substract` is auto-importable from editor, but `sum` and `log` is not auto-importable.
 
 ![Screenshot of auto-complete substract and the editor not suggesting to import from math.ts.](screenshots/substract-is-auto-importable.png)
 
 ![Screenshot of auto-complete sum and the editor not suggesting to import from collection.ts.](screenshots/sub-is-not-auto-importable.png)
 
+![Screenshot of auto-complete log and the editor not suggesting to import from util/log.ts.](screenshots/log-is-not-auto-importable.png)
+
 ### `"includes": ["src/*"]`
 
-`tsc` type-checks all source files in `src` directory.
+`tsc` includes only `src/main.ts`, `src/math.ts` and `src/collection.ts`, but does not include `src/util/log.ts`.
 
 ```console
 $ npx tsc --listFilesOnly | grep -v node_modules
 /Users/mizdra/src/github.com/mizdra/tsconfig-includes-test/src/collection.ts
-/Users/mizdra/src/github.com/mizdra/tsconfig-includes-test/src/log.ts
 /Users/mizdra/src/github.com/mizdra/tsconfig-includes-test/src/math.ts
 /Users/mizdra/src/github.com/mizdra/tsconfig-includes-test/src/main.ts
 ```
 
-`substract` and `sum` is auto-importable from editor.
+`substract` and `sum` is auto-importable from editor, but `log` is not auto-importable.
 
 ![Screenshot of auto-complete substract and the editor not suggesting to import from math.ts.](screenshots/substract-is-auto-importable.png)
 
 ![Screenshot of auto-complete sum and the editor not suggesting to import from collection.ts.](screenshots/sum-is-auto-importable.png)
+
+![Screenshot of auto-complete log and the editor not suggesting to import from util/log.ts.](screenshots/log-is-not-auto-importable.png)
 
 ### `"includes": ["src/**/*"]`
 
@@ -48,16 +51,18 @@ $ npx tsc --listFilesOnly | grep -v node_modules
 ```console
 $ npx tsc --listFilesOnly | grep -v node_modules
 /Users/mizdra/src/github.com/mizdra/tsconfig-includes-test/src/collection.ts
-/Users/mizdra/src/github.com/mizdra/tsconfig-includes-test/src/log.ts
 /Users/mizdra/src/github.com/mizdra/tsconfig-includes-test/src/math.ts
 /Users/mizdra/src/github.com/mizdra/tsconfig-includes-test/src/main.ts
+/Users/mizdra/src/github.com/mizdra/tsconfig-includes-test/src/util/log.ts
 ```
 
-`substract` and `sum` is auto-importable from editor.
+`substract`, `sum` and `log` is auto-importable from editor.
 
 ![Screenshot of auto-complete substract and the editor not suggesting to import from math.ts.](screenshots/substract-is-auto-importable.png)
 
 ![Screenshot of auto-complete sum and the editor not suggesting to import from collection.ts.](screenshots/sum-is-auto-importable.png)
+
+![Screenshot of auto-complete log and the editor suggesting to import from util/log.ts.](screenshots/log-is-auto-importable.png)
 
 ### `"includes": ["src/**"]`
 
@@ -76,16 +81,18 @@ tsconfig.json(2,15): error TS5010: File specification cannot end in a recursive 
 ```console
 $ npx tsc --listFilesOnly | grep -v node_modules
 /Users/mizdra/src/github.com/mizdra/tsconfig-includes-test/src/collection.ts
-/Users/mizdra/src/github.com/mizdra/tsconfig-includes-test/src/log.ts
 /Users/mizdra/src/github.com/mizdra/tsconfig-includes-test/src/math.ts
 /Users/mizdra/src/github.com/mizdra/tsconfig-includes-test/src/main.ts
+/Users/mizdra/src/github.com/mizdra/tsconfig-includes-test/src/util/log.ts
 ```
 
-`substract` and `sum` is auto-importable from editor.
+`substract`, `sum` and `log` is auto-importable from editor.
 
 ![Screenshot of auto-complete substract and the editor not suggesting to import from math.ts.](screenshots/substract-is-auto-importable.png)
 
 ![Screenshot of auto-complete sum and the editor not suggesting to import from collection.ts.](screenshots/sum-is-auto-importable.png)
+
+![Screenshot of auto-complete log and the editor suggesting to import from util/log.ts.](screenshots/log-is-auto-importable.png)
 
 ### `includes` option is not set
 
@@ -94,13 +101,15 @@ $ npx tsc --listFilesOnly | grep -v node_modules
 ```console
 $ npx tsc --listFilesOnly | grep -v node_modules
 /Users/mizdra/src/github.com/mizdra/tsconfig-includes-test/src/collection.ts
-/Users/mizdra/src/github.com/mizdra/tsconfig-includes-test/src/log.ts
 /Users/mizdra/src/github.com/mizdra/tsconfig-includes-test/src/math.ts
 /Users/mizdra/src/github.com/mizdra/tsconfig-includes-test/src/main.ts
+/Users/mizdra/src/github.com/mizdra/tsconfig-includes-test/src/util/log.ts
 ```
 
-`substract` and `sum` is auto-importable from editor.
+`substract`, `sum` and `log` is auto-importable from editor.
 
 ![Screenshot of auto-complete substract and the editor not suggesting to import from math.ts.](screenshots/substract-is-auto-importable.png)
 
 ![Screenshot of auto-complete sum and the editor not suggesting to import from collection.ts.](screenshots/sum-is-auto-importable.png)
+
+![Screenshot of auto-complete log and the editor suggesting to import from util/log.ts.](screenshots/log-is-auto-importable.png)
