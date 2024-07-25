@@ -1,0 +1,16 @@
+{
+  "name": "tsconfig-includes-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "mizdra <pp.mizdra@gmail.com>",
+  "license": "CC0-1.0",
+  "description": "",
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}
